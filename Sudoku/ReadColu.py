@@ -1,4 +1,4 @@
-f = open("pussel.csv", "r")
+f = open("Sudoku/pussel.csv", "r")
 lines = f.readlines()
 try:
     col = int(input("What column would you like to see? ")) -1

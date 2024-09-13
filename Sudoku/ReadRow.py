@@ -1,4 +1,4 @@
-f = open("pussel.csv", "r")
+f = open("Sudoku/pussel.csv", "r")
 row = int(input("Skriv in vilken rad du vill läsa: ")) - 1  
 lines = f.readlines()
 
@@ -11,3 +11,4 @@ f.close()
 
 
 
+    
