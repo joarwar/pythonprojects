@@ -3,8 +3,8 @@ lines = f.readlines()
 unsolved_sudoku = []
 
 for line in lines:
-   row = [int(num) for num in line.strip().split(',')]
-   unsolved_sudoku.append(row)
+  row = [int(num) for num in line.strip().split(',')]
+  unsolved_sudoku.append(row)
 
 def check_row(unsolved_sudoku, row, number):
     for i in range(9):
@@ -33,21 +33,23 @@ def check_box(unsolved_sudoku, row, col, number):
                 return False
     return True 
 
-def number_work(unsolved_sudoku, row, col, number):
+def check_numbers(unsolved_sudoku, row, col, number):
     return check_row(unsolved_sudoku, row, number) and check_col(unsolved_sudoku, col, number) and check_box(unsolved_sudoku, row, col, number)
 
+# Fixat checkar måste lägga en check om det finns mer än ett alternativ i en ruta. Om det inte finns det så ska den sätta in det alternativet.
+# Om det finns fler än ett alternativ så ska den skriva ut vilka alternativ som finns.
 
 for x in range(9):  
     for y in range(9):  
         if unsolved_sudoku[x][y] == 0:  
             for num in range(1, 10):
-                if number_work(unsolved_sudoku, x, y, num):
+                if check_numbers(unsolved_sudoku, x, y, num):
                     print("Row: ", x, "Col: ", y, "Number: ", num)
                 else:
                     print("Row: ", x, "Col: ", y, "Number: ", num, "Not possible")
 
 for row in unsolved_sudoku:
-    print(' '.join(map(str, row)))
+    print(row)
 
 
 
