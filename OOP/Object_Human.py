@@ -10,6 +10,7 @@ class Person:
   def __str__(self):
     return f"Namn: {self.firstname}\nÅlder: {self.age}"
 
+
 name = input("Namn? ")
 age = int(input("Ålder? "))
 p1 = Person(name, age)

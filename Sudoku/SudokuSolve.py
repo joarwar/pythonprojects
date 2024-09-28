@@ -6,27 +6,27 @@ for line in lines:
   row = [int(num) for num in line.strip().split(',')]
   unsolved_sudoku.append(row)
 
-def check_row(unsolved_sudoku, row, number):
+def check_row(unsolved_sudoku, x, number):
     for i in range(9):
-        if unsolved_sudoku[row][i] == number:
+        if unsolved_sudoku[x][i] == number:
             return False
     return True
 
-def check_col(unsolved_sudoku, col, number):
+def check_col(unsolved_sudoku, y, number):
     for i in range(9):
-        if unsolved_sudoku[i][col] == number:
+        if unsolved_sudoku[i][y] == number:
             return False
     return True
 
-def check_box(unsolved_sudoku, row, col, number):
+def check_box(unsolved_sudoku, x, y, number):
     #Box (0,0) | Box (0,3) | Box (0,6)
     #--------------------------------
     #Box (3,0) | Box (3,3) | Box (3,6)
     #--------------------------------
     #Box (6,0) | Box (6,3) | Box (6,6)
 
-    start_row = row - row % 3
-    start_col = col - col % 3
+    start_row = x - x % 3
+    start_col = y - y % 3
     for i in range(3):
         for j in range(3):
             if unsolved_sudoku[i + start_row][j + start_col] == number:
@@ -43,8 +43,9 @@ for x in range(9):
     for y in range(9):  
         if unsolved_sudoku[x][y] == 0:  
             for num in range(1, 10):
-                if check_numbers(unsolved_sudoku, x, y, num):
-                    print("Row: ", x, "Col: ", y, "Number: ", num)
+                if check_numbers(unsolved_sudoku, x, y, num): 
+                    
+                        print("two numbers possible ")
                 else:
                     print("Row: ", x, "Col: ", y, "Number: ", num, "Not possible")
 

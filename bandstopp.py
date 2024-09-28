@@ -4,10 +4,10 @@ from scipy.signal import freqz
 
 # Definiera filterkoefficienterna
 b = [1.   ,      0.618034  , 1.00000092]  # Numerator koefficienter (b)
-a = [1,0.55623,0.81000007]          # Nominator koefficienter (a)
+a = []          # Nominator koefficienter (a)
 
 # Definiera samplingsfrekvensen
-fs = 1000  # Samplingsfrekvens i Hz
+fs = 48000  # Samplingsfrekvens i Hz
 
 # Beräkna frekvensresponsen
 w, h = freqz(b, a)
